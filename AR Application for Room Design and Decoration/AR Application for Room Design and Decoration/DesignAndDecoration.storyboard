@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPm-Ka-xIb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Design and Decoration-->
+        <scene sceneID="MMM-Fj-Byg">
+            <objects>
+                <viewController id="hPm-Ka-xIb" customClass="DesignAndDecorationViewController" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OE0-Z7-97L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jK-GO-Fgr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8jK-GO-Fgr" firstAttribute="trailing" secondItem="f4e-ax-yLq" secondAttribute="trailing" id="3sz-Wf-A4x"/>
+                            <constraint firstItem="8jK-GO-Fgr" firstAttribute="leading" secondItem="f4e-ax-yLq" secondAttribute="leading" id="Eyg-OJ-t0e"/>
+                            <constraint firstItem="8jK-GO-Fgr" firstAttribute="top" secondItem="OE0-Z7-97L" secondAttribute="top" id="nzE-2A-BDF"/>
+                            <constraint firstItem="8jK-GO-Fgr" firstAttribute="bottom" secondItem="f4e-ax-yLq" secondAttribute="bottom" id="sqq-6F-edh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f4e-ax-yLq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Design and Decoration" id="9qY-He-urv"/>
+                    <connections>
+                        <outlet property="sceneView" destination="8jK-GO-Fgr" id="aGy-1z-IAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QYk-Rx-Nxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-242.40000000000001" y="30.134932533733135"/>
+        </scene>
+    </scenes>
+</document>
