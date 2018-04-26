@@ -18,65 +18,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxZ-w0-rSM">
-                                <rect key="frame" x="20" y="288.5" width="335" height="90"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="im1-nQ-Xmt">
-                                        <rect key="frame" x="0.0" y="50" width="335" height="40"/>
-                                        <color key="backgroundColor" red="0.43507838249206543" green="0.8431861400604248" blue="0.89400506019592285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="7B0-KD-cjr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Design and Decoration">
-                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="fc2-cm-a4d" kind="show" id="RDa-eo-sxf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyt-37-UbZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
-                                        <color key="backgroundColor" red="0.42723947763442993" green="0.82749897241592407" blue="0.87832063436508179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="uzX-6C-Che"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Gallery">
-                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="n5X-li-QLY" kind="show" id="6pG-xv-96F"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gyt-37-UbZ" secondAttribute="trailing" id="77E-An-kxU"/>
-                                    <constraint firstItem="im1-nQ-Xmt" firstAttribute="leading" secondItem="JxZ-w0-rSM" secondAttribute="leading" id="L1n-XY-rWR"/>
-                                    <constraint firstItem="gyt-37-UbZ" firstAttribute="top" secondItem="JxZ-w0-rSM" secondAttribute="top" id="aQk-Oh-6hW"/>
-                                    <constraint firstAttribute="height" constant="90" id="gAF-eN-hrC"/>
-                                    <constraint firstAttribute="trailing" secondItem="im1-nQ-Xmt" secondAttribute="trailing" id="jkM-Ln-af4"/>
-                                    <constraint firstAttribute="bottom" secondItem="im1-nQ-Xmt" secondAttribute="bottom" id="ode-34-poX"/>
-                                    <constraint firstItem="gyt-37-UbZ" firstAttribute="leading" secondItem="JxZ-w0-rSM" secondAttribute="leading" id="wvb-7u-awu"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR App for Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZf-Cj-WSn">
-                                <rect key="frame" x="70" y="144" width="235" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.42723947763442993" green="0.82749897241592407" blue="0.87832063436508179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="06f-4I-cZK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="im1-nQ-Xmt" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
+                                <rect key="frame" x="20" y="584" width="335" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29379689693450928" green="0.80397087335586548" blue="0.94890016317367554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Design and Decoration">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goDesignAndDecoration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IKZ-Au-CXb"/>
+                                    <segue destination="fc2-cm-a4d" kind="show" id="Ion-4R-qqI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyt-37-UbZ" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
+                                <rect key="frame" x="20" y="536" width="335" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.24579655203764372" green="0.82787429163114967" blue="1" alpha="0.98183326198630139" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Gallery">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huB-qC-DFS"/>
+                                    <segue destination="n5X-li-QLY" kind="show" id="Oj5-rq-3lu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JxZ-w0-rSM" secondAttribute="trailing" constant="20" id="AWa-Gd-phh"/>
-                            <constraint firstItem="tZf-Cj-WSn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="O5u-GM-E9K"/>
-                            <constraint firstItem="JxZ-w0-rSM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nPp-By-Ych"/>
-                            <constraint firstItem="tZf-Cj-WSn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nXC-Jx-EfG"/>
-                            <constraint firstItem="JxZ-w0-rSM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="seq-Zx-6pH"/>
-                            <constraint firstItem="JxZ-w0-rSM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vjb-Xs-ZnB"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="P86-UF-a5E"/>
@@ -123,4 +106,7 @@
             <point key="canvasLocation" x="76" y="313"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="658" height="990"/>
+    </resources>
 </document>

@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_AR_Application_for_Room_Design_and_Decoration : NSObject
+@end
+@implementation PodsDummy_Pods_AR_Application_for_Room_Design_and_Decoration
+@end

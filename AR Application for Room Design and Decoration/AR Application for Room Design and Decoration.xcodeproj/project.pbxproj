@@ -15,9 +15,39 @@
 		1932621D205789BA007EDDBD /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1932621C205789BA007EDDBD /* GalleryViewController.swift */; };
 		1932621F2057A68D007EDDBD /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1932621E2057A68D007EDDBD /* Gallery.storyboard */; };
 		193262212057AA35007EDDBD /* DesignAndDecoration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193262202057AA35007EDDBD /* DesignAndDecoration.storyboard */; };
+		19572A44205B855400577B59 /* GalleryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19572A43205B855400577B59 /* GalleryImageCell.swift */; };
+		19572A48205B886300577B59 /* DetailGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19572A47205B886300577B59 /* DetailGalleryViewController.swift */; };
 		19AEDF342057C19D0016DC7D /* DesignAndDecorationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AEDF332057C19D0016DC7D /* DesignAndDecorationViewController.swift */; };
-		267496CF205926C4007B744F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267496CE205926C4007B744F /* Extension.swift */; };
-		267496EF205A6D3C007B744F /* cup.scn in Resources */ = {isa = PBXBuildFile; fileRef = 267496EE205A6D3C007B744F /* cup.scn */; };
+		19AF505A20748DD700D9B032 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF505620748DD600D9B032 /* Category.swift */; };
+		19AF505B20748DD700D9B032 /* Furniture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF505720748DD600D9B032 /* Furniture.swift */; };
+		19AF505C20748DD700D9B032 /* GalleryImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF505820748DD600D9B032 /* GalleryImage.swift */; };
+		19AF505D20748DD700D9B032 /* GalleryVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF505920748DD600D9B032 /* GalleryVideo.swift */; };
+		19FDA8E22074A62C001A27C8 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FDA8E12074A62C001A27C8 /* RealmService.swift */; };
+		265390D32074C99A00F87186 /* GalleryImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265390D22074C99A00F87186 /* GalleryImageDAO.swift */; };
+		2662A39A206E139D00D3F29B /* DesignAndDecoration+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662A397206E139D00D3F29B /* DesignAndDecoration+ARSCNViewDelegate.swift */; };
+		2662A39B206E139D00D3F29B /* DesignAndDecoration+GestureObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662A398206E139D00D3F29B /* DesignAndDecoration+GestureObject.swift */; };
+		2662A39C206E139D00D3F29B /* DesignAndDecotation+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662A399206E139D00D3F29B /* DesignAndDecotation+Action.swift */; };
+		2662A39E206E13BB00D3F29B /* PlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662A39D206E13BB00D3F29B /* PlaneNode.swift */; };
+		2662A3A0206E168B00D3F29B /* add.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662A39F206E168B00D3F29B /* add.mp3 */; };
+		2662A3A4206E172F00D3F29B /* delete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662A3A3206E172F00D3F29B /* delete.mp3 */; };
+		26A092862062354700E429BE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A092852062354700E429BE /* art.scnassets */; };
+		26CF8251205BBB7600F2A9A3 /* readme.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26CF8250205BBB7600F2A9A3 /* readme.strings */; };
+		774B63F020887137000C363D /* ImageSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B63EF20887137000C363D /* ImageSave.swift */; };
+		776422D1207F0A230047D3C0 /* TableFurnitureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776422D0207F0A230047D3C0 /* TableFurnitureViewController.swift */; };
+		776422D3207F0C0B0047D3C0 /* FurnitureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776422D2207F0C0B0047D3C0 /* FurnitureCell.swift */; };
+		77961EB8206C987100E54808 /* OptionActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77961EB7206C987100E54808 /* OptionActionButton.swift */; };
+		77A59F41205FC21E008A7CDA /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F37205FC21E008A7CDA /* UIButtonX.swift */; };
+		77A59F42205FC21E008A7CDA /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F38205FC21E008A7CDA /* UIImageViewX.swift */; };
+		77A59F43205FC21E008A7CDA /* UILabelX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F39205FC21E008A7CDA /* UILabelX.swift */; };
+		77A59F44205FC21E008A7CDA /* UISliderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F3A205FC21E008A7CDA /* UISliderX.swift */; };
+		77A59F45205FC21E008A7CDA /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F3B205FC21E008A7CDA /* UITextFieldX.swift */; };
+		77A59F46205FC21E008A7CDA /* UIViewAnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F3C205FC21E008A7CDA /* UIViewAnchorPoint.swift */; };
+		77A59F47205FC21E008A7CDA /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F3D205FC21E008A7CDA /* UIViewControllerX.swift */; };
+		77A59F48205FC21E008A7CDA /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F3E205FC21E008A7CDA /* UIViewX.swift */; };
+		77A59F49205FC21E008A7CDA /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F3F205FC21E008A7CDA /* UIViewXRadialGradient.swift */; };
+		77A59F4A205FC21E008A7CDA /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F40205FC21E008A7CDA /* UIVisualEffectViewX.swift */; };
+		77A59F4C205FC240008A7CDA /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59F4B205FC240008A7CDA /* FloatingActionButton.swift */; };
+		C2C8A9B31EB9BE8322E38C24 /* Pods_AR_Application_for_Room_Design_and_Decoration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F33EE7C4DBCC392FA49086 /* Pods_AR_Application_for_Room_Design_and_Decoration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +61,41 @@
 		1932621C205789BA007EDDBD /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1932621E2057A68D007EDDBD /* Gallery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
 		193262202057AA35007EDDBD /* DesignAndDecoration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DesignAndDecoration.storyboard; sourceTree = "<group>"; };
+		19572A43205B855400577B59 /* GalleryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageCell.swift; sourceTree = "<group>"; };
+		19572A47205B886300577B59 /* DetailGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGalleryViewController.swift; sourceTree = "<group>"; };
 		19AEDF332057C19D0016DC7D /* DesignAndDecorationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignAndDecorationViewController.swift; sourceTree = "<group>"; };
-		267496CE205926C4007B744F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		267496EE205A6D3C007B744F /* cup.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = cup.scn; sourceTree = "<group>"; };
+		19AF505620748DD600D9B032 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		19AF505720748DD600D9B032 /* Furniture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Furniture.swift; sourceTree = "<group>"; };
+		19AF505820748DD600D9B032 /* GalleryImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryImage.swift; sourceTree = "<group>"; };
+		19AF505920748DD600D9B032 /* GalleryVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryVideo.swift; sourceTree = "<group>"; };
+		19FDA8E12074A62C001A27C8 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		265390D22074C99A00F87186 /* GalleryImageDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageDAO.swift; sourceTree = "<group>"; };
+		2662A397206E139D00D3F29B /* DesignAndDecoration+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DesignAndDecoration+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		2662A398206E139D00D3F29B /* DesignAndDecoration+GestureObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DesignAndDecoration+GestureObject.swift"; sourceTree = "<group>"; };
+		2662A399206E139D00D3F29B /* DesignAndDecotation+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DesignAndDecotation+Action.swift"; sourceTree = "<group>"; };
+		2662A39D206E13BB00D3F29B /* PlaneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneNode.swift; sourceTree = "<group>"; };
+		2662A39F206E168B00D3F29B /* add.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = add.mp3; sourceTree = "<group>"; };
+		2662A3A3206E172F00D3F29B /* delete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = delete.mp3; sourceTree = "<group>"; };
+		26A092852062354700E429BE /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		26CF8250205BBB7600F2A9A3 /* readme.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = readme.strings; sourceTree = "<group>"; };
+		56F33EE7C4DBCC392FA49086 /* Pods_AR_Application_for_Room_Design_and_Decoration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_Application_for_Room_Design_and_Decoration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		774B63EF20887137000C363D /* ImageSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSave.swift; sourceTree = "<group>"; };
+		776422D0207F0A230047D3C0 /* TableFurnitureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFurnitureViewController.swift; sourceTree = "<group>"; };
+		776422D2207F0C0B0047D3C0 /* FurnitureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureCell.swift; sourceTree = "<group>"; };
+		77961EB7206C987100E54808 /* OptionActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionActionButton.swift; sourceTree = "<group>"; };
+		77A59F37205FC21E008A7CDA /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
+		77A59F38205FC21E008A7CDA /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
+		77A59F39205FC21E008A7CDA /* UILabelX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelX.swift; sourceTree = "<group>"; };
+		77A59F3A205FC21E008A7CDA /* UISliderX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderX.swift; sourceTree = "<group>"; };
+		77A59F3B205FC21E008A7CDA /* UITextFieldX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldX.swift; sourceTree = "<group>"; };
+		77A59F3C205FC21E008A7CDA /* UIViewAnchorPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnchorPoint.swift; sourceTree = "<group>"; };
+		77A59F3D205FC21E008A7CDA /* UIViewControllerX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
+		77A59F3E205FC21E008A7CDA /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
+		77A59F3F205FC21E008A7CDA /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
+		77A59F40205FC21E008A7CDA /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
+		77A59F4B205FC240008A7CDA /* FloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		98A9703AF78C464AB002C393 /* Pods-AR Application for Room Design and Decoration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Application for Room Design and Decoration.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR Application for Room Design and Decoration/Pods-AR Application for Room Design and Decoration.release.xcconfig"; sourceTree = "<group>"; };
+		C3AE3833464F1FBE3FBC96BA /* Pods-AR Application for Room Design and Decoration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Application for Room Design and Decoration.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AR Application for Room Design and Decoration/Pods-AR Application for Room Design and Decoration.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C8A9B31EB9BE8322E38C24 /* Pods_AR_Application_for_Room_Design_and_Decoration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,8 +113,11 @@
 		193261B120577680007EDDBD = {
 			isa = PBXGroup;
 			children = (
+				26CF8250205BBB7600F2A9A3 /* readme.strings */,
 				193261BC20577681007EDDBD /* AR Application for Room Design and Decoration */,
 				193261BB20577681007EDDBD /* Products */,
+				FFBCFF4AE27CE9A237B2A148 /* Pods */,
+				899A135F217BEA346FDF79E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,20 +132,89 @@
 		193261BC20577681007EDDBD /* AR Application for Room Design and Decoration */ = {
 			isa = PBXGroup;
 			children = (
-				1932621E2057A68D007EDDBD /* Gallery.storyboard */,
+				77A59F4B205FC240008A7CDA /* FloatingActionButton.swift */,
+				77961EB7206C987100E54808 /* OptionActionButton.swift */,
+				77A59F35205FC1D7008A7CDA /* Resouces */,
+				19AF505520748DD600D9B032 /* Models */,
 				193261BD20577681007EDDBD /* AppDelegate.swift */,
 				1932621C205789BA007EDDBD /* GalleryViewController.swift */,
+				19AEDF332057C19D0016DC7D /* DesignAndDecorationViewController.swift */,
+				19572A47205B886300577B59 /* DetailGalleryViewController.swift */,
+				2662A397206E139D00D3F29B /* DesignAndDecoration+ARSCNViewDelegate.swift */,
+				2662A398206E139D00D3F29B /* DesignAndDecoration+GestureObject.swift */,
+				2662A399206E139D00D3F29B /* DesignAndDecotation+Action.swift */,
+				19FDA8E12074A62C001A27C8 /* RealmService.swift */,
 				193261BF20577681007EDDBD /* ViewController.swift */,
+				19572A43205B855400577B59 /* GalleryImageCell.swift */,
+				2662A39D206E13BB00D3F29B /* PlaneNode.swift */,
+				193262202057AA35007EDDBD /* DesignAndDecoration.storyboard */,
+				1932621E2057A68D007EDDBD /* Gallery.storyboard */,
 				193261C120577682007EDDBD /* Main.storyboard */,
+				776422D0207F0A230047D3C0 /* TableFurnitureViewController.swift */,
+				776422D2207F0C0B0047D3C0 /* FurnitureCell.swift */,
+				26A092852062354700E429BE /* art.scnassets */,
 				193261C4205776AB007EDDBD /* Assets.xcassets */,
-				267496EE205A6D3C007B744F /* cup.scn */,
 				193261C6205776AB007EDDBD /* LaunchScreen.storyboard */,
 				193261C9205776AB007EDDBD /* Info.plist */,
-				193262202057AA35007EDDBD /* DesignAndDecoration.storyboard */,
-				19AEDF332057C19D0016DC7D /* DesignAndDecorationViewController.swift */,
-				267496CE205926C4007B744F /* Extension.swift */,
+				2662A39F206E168B00D3F29B /* add.mp3 */,
+				2662A3A3206E172F00D3F29B /* delete.mp3 */,
 			);
 			path = "AR Application for Room Design and Decoration";
+			sourceTree = "<group>";
+		};
+		19AF505520748DD600D9B032 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19AF505620748DD600D9B032 /* Category.swift */,
+				19AF505720748DD600D9B032 /* Furniture.swift */,
+				19AF505820748DD600D9B032 /* GalleryImage.swift */,
+				19AF505920748DD600D9B032 /* GalleryVideo.swift */,
+				265390D22074C99A00F87186 /* GalleryImageDAO.swift */,
+				774B63EF20887137000C363D /* ImageSave.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77A59F35205FC1D7008A7CDA /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				77A59F36205FC21E008A7CDA /* DesignableX */,
+			);
+			path = Resouces;
+			sourceTree = "<group>";
+		};
+		77A59F36205FC21E008A7CDA /* DesignableX */ = {
+			isa = PBXGroup;
+			children = (
+				77A59F37205FC21E008A7CDA /* UIButtonX.swift */,
+				77A59F38205FC21E008A7CDA /* UIImageViewX.swift */,
+				77A59F39205FC21E008A7CDA /* UILabelX.swift */,
+				77A59F3A205FC21E008A7CDA /* UISliderX.swift */,
+				77A59F3B205FC21E008A7CDA /* UITextFieldX.swift */,
+				77A59F3C205FC21E008A7CDA /* UIViewAnchorPoint.swift */,
+				77A59F3D205FC21E008A7CDA /* UIViewControllerX.swift */,
+				77A59F3E205FC21E008A7CDA /* UIViewX.swift */,
+				77A59F3F205FC21E008A7CDA /* UIViewXRadialGradient.swift */,
+				77A59F40205FC21E008A7CDA /* UIVisualEffectViewX.swift */,
+			);
+			path = DesignableX;
+			sourceTree = "<group>";
+		};
+		899A135F217BEA346FDF79E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56F33EE7C4DBCC392FA49086 /* Pods_AR_Application_for_Room_Design_and_Decoration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFBCFF4AE27CE9A237B2A148 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3AE3833464F1FBE3FBC96BA /* Pods-AR Application for Room Design and Decoration.debug.xcconfig */,
+				98A9703AF78C464AB002C393 /* Pods-AR Application for Room Design and Decoration.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 193261CC205776AB007EDDBD /* Build configuration list for PBXNativeTarget "AR Application for Room Design and Decoration" */;
 			buildPhases = (
+				937F4C0D6A4B04D04CCEB74A /* [CP] Check Pods Manifest.lock */,
 				193261B620577680007EDDBD /* Sources */,
 				193261B720577680007EDDBD /* Frameworks */,
 				193261B820577680007EDDBD /* Resources */,
+				01390860A57B79DD8430D31E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,24 +280,100 @@
 				193261C8205776AB007EDDBD /* LaunchScreen.storyboard in Resources */,
 				1932621F2057A68D007EDDBD /* Gallery.storyboard in Resources */,
 				193262212057AA35007EDDBD /* DesignAndDecoration.storyboard in Resources */,
-				267496EF205A6D3C007B744F /* cup.scn in Resources */,
+				2662A3A0206E168B00D3F29B /* add.mp3 in Resources */,
+				26A092862062354700E429BE /* art.scnassets in Resources */,
+				26CF8251205BBB7600F2A9A3 /* readme.strings in Resources */,
 				193261C5205776AB007EDDBD /* Assets.xcassets in Resources */,
 				193261C320577682007EDDBD /* Main.storyboard in Resources */,
+				2662A3A4206E172F00D3F29B /* delete.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01390860A57B79DD8430D31E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AR Application for Room Design and Decoration/Pods-AR Application for Room Design and Decoration-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SceneKitVideoRecorder/SceneKitVideoRecorder.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SceneKitVideoRecorder.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AR Application for Room Design and Decoration/Pods-AR Application for Room Design and Decoration-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		937F4C0D6A4B04D04CCEB74A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AR Application for Room Design and Decoration-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		193261B620577680007EDDBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				267496CF205926C4007B744F /* Extension.swift in Sources */,
+				19AF505D20748DD700D9B032 /* GalleryVideo.swift in Sources */,
+				776422D1207F0A230047D3C0 /* TableFurnitureViewController.swift in Sources */,
+				77A59F4A205FC21E008A7CDA /* UIVisualEffectViewX.swift in Sources */,
+				77961EB8206C987100E54808 /* OptionActionButton.swift in Sources */,
+				77A59F45205FC21E008A7CDA /* UITextFieldX.swift in Sources */,
+				77A59F49205FC21E008A7CDA /* UIViewXRadialGradient.swift in Sources */,
 				1932621D205789BA007EDDBD /* GalleryViewController.swift in Sources */,
+				19572A48205B886300577B59 /* DetailGalleryViewController.swift in Sources */,
+				265390D32074C99A00F87186 /* GalleryImageDAO.swift in Sources */,
+				774B63F020887137000C363D /* ImageSave.swift in Sources */,
 				193261C020577681007EDDBD /* ViewController.swift in Sources */,
+				77A59F4C205FC240008A7CDA /* FloatingActionButton.swift in Sources */,
+				77A59F46205FC21E008A7CDA /* UIViewAnchorPoint.swift in Sources */,
+				77A59F41205FC21E008A7CDA /* UIButtonX.swift in Sources */,
 				19AEDF342057C19D0016DC7D /* DesignAndDecorationViewController.swift in Sources */,
+				77A59F48205FC21E008A7CDA /* UIViewX.swift in Sources */,
+				776422D3207F0C0B0047D3C0 /* FurnitureCell.swift in Sources */,
+				19FDA8E22074A62C001A27C8 /* RealmService.swift in Sources */,
+				19AF505C20748DD700D9B032 /* GalleryImage.swift in Sources */,
+				77A59F42205FC21E008A7CDA /* UIImageViewX.swift in Sources */,
+				2662A39C206E139D00D3F29B /* DesignAndDecotation+Action.swift in Sources */,
+				19AF505A20748DD700D9B032 /* Category.swift in Sources */,
+				77A59F47205FC21E008A7CDA /* UIViewControllerX.swift in Sources */,
+				77A59F44205FC21E008A7CDA /* UISliderX.swift in Sources */,
+				77A59F43205FC21E008A7CDA /* UILabelX.swift in Sources */,
+				2662A39B206E139D00D3F29B /* DesignAndDecoration+GestureObject.swift in Sources */,
+				19572A44205B855400577B59 /* GalleryImageCell.swift in Sources */,
 				193261BE20577681007EDDBD /* AppDelegate.swift in Sources */,
+				2662A39E206E13BB00D3F29B /* PlaneNode.swift in Sources */,
+				19AF505B20748DD700D9B032 /* Furniture.swift in Sources */,
+				2662A39A206E139D00D3F29B /* DesignAndDecoration+ARSCNViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,17 +515,21 @@
 		};
 		193261CD205776AB007EDDBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3AE3833464F1FBE3FBC96BA /* Pods-AR Application for Room Design and Decoration.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8T8SY3347Q;
 				INFOPLIST_FILE = "AR Application for Room Design and Decoration/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tina-enclave.vn.hhh";
+				PRODUCT_BUNDLE_IDENTIFIER = wtf.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -320,17 +537,21 @@
 		};
 		193261CE205776AB007EDDBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98A9703AF78C464AB002C393 /* Pods-AR Application for Room Design and Decoration.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8T8SY3347Q;
 				INFOPLIST_FILE = "AR Application for Room Design and Decoration/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tina-enclave.vn.hhh";
+				PRODUCT_BUNDLE_IDENTIFIER = wtf.vn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
