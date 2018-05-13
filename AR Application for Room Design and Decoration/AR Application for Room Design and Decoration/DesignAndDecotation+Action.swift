@@ -3,14 +3,14 @@ import AVFoundation
 import AVKit
 
 extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
+    
     @IBAction func chooseCup(_ location:SCNVector3){
-        self.sceneView.scene.rootNode.enumerateChildNodes{(node, _) in
+        self.sceneView.scene.rootNode.enumerateChildNodes{(node, stop) in
             if node.name == "planeNode"{
                 node.removeFromParentNode()
             }
         }
-
+        
         let hit = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
         if hit.isEmpty{
             return
@@ -23,44 +23,21 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
             wrappNode.addChildNode(childNode)
         }
         node.addChildNode(wrappNode)
-//        node.scale=SCNVector3(0.05,0.05,0.05)
         let results=hit.first?.worldTransform
-        node.position=SCNVector3((results?.columns.3.x)!, (results?.columns.3.y)!, (results?.columns.3.z)!)
-        DispatchQueue.main.async {
-            self.sceneView.scene.rootNode.addChildNode(node)
-            if self.swtAudio.isOn{
-               self.audioConfigure(action: "add")
+        
+        for infinitePlaneResult in hit {
+            if let planeAnchor = infinitePlaneResult.anchor as? ARPlaneAnchor{
+                if planeAnchor.alignment == ARPlaneAnchor.Alignment.vertical {
+                    // Return the first vertical plane hit test result.
+                    let cameraYaw=sceneView.session.currentFrame?.camera.eulerAngles.y
+                
+                    let nodeRotation=SCNVector3(0, cameraYaw!, 0)
+                    node.eulerAngles=nodeRotation
+                }
             }
         }
-        self.closeMenu()
-        UIView.animate(withDuration: 0.3, animations: {self.btnMenu.transform = .identity})
-    }
-
-    @IBAction func choose(sender: UIButton){
-        self.sceneView.scene.rootNode.enumerateChildNodes{(node, _) in
-            if node.name == "planeNode"{
-                node.removeFromParentNode()
-            }
-        }
-
-        let hit = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
-        if hit.isEmpty{
-            return
-        }
-        let node = SCNNode()
-        let myURL = NSURL(string: "https://firebasestorage.googleapis.com/v0/b/realmdemo-25a4e.appspot.com/o/scnFiles%2Fcup.scn?alt=media&token=3d1d0a5f-9e35-41e2-9c7f-1b001c13d6e0")
-        let scene = try! SCNScene(url: myURL! as URL, options: nil)
-        let nodeArray = scene.rootNode.childNodes
-        for childNode in nodeArray {
-            node.addChildNode(childNode)
-        }
-//        node.scale = SCNVector3(0.01,0.01,0.01)
-
-        let results=hit.first?.worldTransform
+        
         node.position=SCNVector3((results?.columns.3.x)!, (results?.columns.3.y)!, (results?.columns.3.z)!)
-//        self.sceneView.scene.rootNode.addChildNode(node)
-
-
         DispatchQueue.main.async {
             self.sceneView.scene.rootNode.addChildNode(node)
             if self.swtAudio.isOn{
@@ -70,7 +47,7 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
         self.closeMenu()
         UIView.animate(withDuration: 0.3, animations: {self.btnMenu.transform = .identity})
     }
-    
+        
     func audioConfigure(action:String){
         // configure audio
         do{
@@ -83,10 +60,10 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
             audioPlayer = try AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audio) as URL)
             audioPlayer.play()
         }catch{
-
+            
         }
     }
-
+    
     @IBAction func btnDeleteEvent() {
         // create the alert
         let alert = UIAlertController(title: "Warning!", message: "Do you want to remove it?", preferredStyle: UIAlertControllerStyle.alert)
@@ -110,22 +87,59 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
         
     }
     
-    
-    
     @IBAction func btnTakeScreendEvent() {
         closeAllAnimation()
-        let image = sceneView.snapshot()
-        print("Information: ", image)
+        let snapshot = sceneView.snapshot()
+        let dimension = "\(snapshot.size.width) x \(snapshot.size.height)"
         imgView.isHidden=false
-        imgView.image=image
         btnCancel.isHidden=false
         btnShare.isHidden=false
         isVideo=false
+        imgView.image = snapshot
         
-        let imageData: Data = UIImageJPEGRepresentation(image, 0.50)!
-        let imageSave=ImageSave(imageData)
-        RealmService.shared.create(imageSave)
+        let imageData: Data = UIImageJPEGRepresentation(snapshot, 0.50)!
+        let imagePath = documentDirectoryPath.appending("/\(arc4random()).jpg")
+        removeItemIfExist(path: imagePath)
+        
+        try! imageData.write(to: URL.init(fileURLWithPath: imagePath), options: .atomicWrite)
+        
+        do{
+            let imageAttributes = try fileManager.attributesOfItem(atPath: imagePath)
+            let creationDate = self.convertToLocalDate(date: imageAttributes[FileAttributeKey.creationDate] as! Date)
+            let size = self.convertToFileSize(size: imageAttributes[FileAttributeKey.size] as! Float)
+            
+            let image = Gallery(path: imagePath, dimension: dimension, size: size, creationDate: creationDate, thumbnailPath: nil)
+            RealmService.shared.create(image)
+        }catch{
+            print(error)
+        }
     }
+    
+    func convertToFileSize(size: Float) ->String{
+        if size <= 0 {
+            return "Unknown"
+        }
+        else if size > 1024*1024*1024 {
+            return  "\((size/(1024*1024*1024)).round1()) GB"
+        }
+        else if size > 1024*1024 {
+            return  "\((size/(1024*1024)).round1()) MB"
+        }
+        else if size > 1024 {
+            return  "\((size/1024).round1()) KB"
+        }
+        return "\(size) bytes"
+    }
+    
+    func convertToLocalDate(date: Date) ->String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        dateFormatter.timeZone = TimeZone.current
+        
+        return dateFormatter.string(from: date)
+    }
+    
     @IBAction func btnShareEvent() {
         let image = imgView.image
         if !btnShare.isHidden{
@@ -180,32 +194,71 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
             self.btnOption.transform = .identity
         })
         self.recorder?.startWriting().onSuccess {
-            print("Recording Started")
         }
     }
     
     @IBAction func stopRecord(sender: UIButton){
         self.recorder?.finishWriting().onSuccess { [weak self] url in
-            print("Recording Finished", url)
-            self?.pathVideo=url
             self?.isVideo=true
             self?.isPlay.isHidden=false
             self?.isRecord.isHidden=true
-            let image = self?.sceneView.snapshot()
-            self?.imgView.image=image
             self?.imgView.isHidden=false
             self?.btnCancel.isHidden=false
             self?.btnShare.isHidden=false
             
-            do{
-                let videoData = try! Data(contentsOf: url as URL)
-                let videoSave=ImageSave(videoData)
-                RealmService.shared.create(videoSave)
-            }catch{
-                print("err")
-            }
+            let videoPath = documentDirectoryPath.appending("/\(arc4random()).mp4")
+            self?.removeItemIfExist(path: videoPath)
+            let imagePath = self?.getThumbnailOfVideo(videoPath: url.absoluteString)
 
+            self?.imgView.image = UIImage(contentsOfFile: imagePath!)
+            self?.pathVideo = URL(fileURLWithPath: videoPath)
+            
+            let videoData = try! Data(contentsOf: url as URL)
+            try! videoData.write(to: URL.init(fileURLWithPath: videoPath), options: .atomicWrite)
+            
+            do{
+                let videoAttributes = try self?.fileManager.attributesOfItem(atPath: videoPath)
+                let creationDate = self?.convertToLocalDate(date: videoAttributes![FileAttributeKey.creationDate] as! Date)
+                let size = self?.convertToFileSize(size: videoAttributes![FileAttributeKey.size] as! Float)
+                
+                let image = Gallery(path: videoPath, dimension: "", size: size!, creationDate: creationDate!, thumbnailPath: imagePath)
+                RealmService.shared.create(image)
+            }catch{
+                print(error)
+            }
         }
+    }
+    
+    func removeItemIfExist(path: String){
+        if (fileManager.fileExists(atPath: path)){
+            try!  fileManager.removeItem(atPath: path)
+        }
+    }
+    
+    //Create thumbnail, save to documentDirectory and return a path
+    func getThumbnailOfVideo(videoPath: String) ->String{
+        
+        let asset = AVAsset(url: URL(fileURLWithPath: videoPath))
+        let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        
+        let time = CMTimeMake(1, 2)
+        let image = try? assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+        
+        if image != nil {
+            
+            let frameImage  = UIImage(cgImage: image!)
+            let imageData: Data = UIImageJPEGRepresentation(frameImage, 0.30)!
+            let imagePath = documentDirectoryPath.appending("/\(arc4random()).jpg")
+            
+            if (fileManager.fileExists(atPath: imagePath)){
+                try!  fileManager.removeItem(atPath: imagePath)
+            }
+            
+            try! imageData.write(to: URL.init(fileURLWithPath: imagePath), options: .atomicWrite)
+            return imagePath
+        }
+        return ""
     }
     
     @IBAction func playVideo(sender: UIButton){
@@ -221,7 +274,7 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
         player.play()
         self.present(playerController, animated: true) {}
     }
-
+    
     func closeAllAnimation(){
         UIView.animate(withDuration: 0.3, animations: {
             self.closeMenu()
@@ -232,3 +285,8 @@ extension DesignAndDecorationViewController: UIImagePickerControllerDelegate, UI
     }
 }
 
+extension Float{
+    func round1() ->Float{
+        return roundf(self*10)/10
+    }
+}

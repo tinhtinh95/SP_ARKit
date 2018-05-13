@@ -36,3 +36,52 @@
 //        let cup=SCNScene(named: "cup.scn")
 //        let node=cup?.rootNode.childNode(withName: "cup", recursively: true)
 //        return node!
+
+
+//@objc func scale(_ gesture: UIPinchGestureRecognizer) {
+//    let location = gesture.location(in: sceneView)
+//
+//    guard let node = getNodeRelatedRootNode(at: location) else{return}
+//    switch gesture.state {
+//        case .began:
+//        //            self.originalScale = node.scale
+//        gesture.scale = CGFloat(node.scale.x)
+//        case .changed:
+//        print(".change")
+//        //            guard var originalScale = self.originalScale else { return }
+//        if gesture.scale > 2.0 || gesture.scale < 0.5 {
+//            return
+//        }
+//        node.scale = SCNVector3(Float(gesture.scale),Float(gesture.scale),Float(gesture.scale))
+//        //            originalScale.x = Float(gesture.scale)
+//        //            originalScale.y = Float(gesture.scale)
+//        //            originalScale.z = Float(gesture.scale)
+//        //            node.scale = originalScale
+//        //        case .ended:
+//        //            print(".scale")
+//        //            guard var originalScale = self.originalScale else { return }
+//        //            if gesture.scale > 2.0 || gesture.scale < 0.5 {
+//        //                return
+//        //            }
+//        //            originalScale.x = Float(gesture.scale)
+//        //            originalScale.y = Float(gesture.scale)
+//        //            originalScale.z = Float(gesture.scale)
+//        //            node.scale = originalScale
+//        //            gesture.scale = CGFloat(node.scale.x)
+//        default:
+//        gesture.scale = 1.0
+//    }
+//
+//
+//    //        if gesture.state == .began || gesture.state == .changed {
+//    //            if gesture.scale > 2.0 || gesture.scale < 0.5 {
+//    //                                return
+//    //                            }
+//    //            gesture.scale = CGFloat(node.scale.x)
+//    //            node.scale = SCNVector3(Float(gesture.scale),Float(gesture.scale),Float(gesture.scale))
+//    //
+//    //        }else{
+//    //            gesture.scale = 1.0
+//    //        }
+//
+//    }

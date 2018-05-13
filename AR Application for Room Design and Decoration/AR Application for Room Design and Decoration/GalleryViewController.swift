@@ -5,13 +5,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var currentSelectedItem:Int!
     @IBOutlet weak var collectionView: UICollectionView!
-
-    var listImages: Results<ImageSave>!
+    
+    var listGalleries: Results<Gallery>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
+        listGalleries=RealmService.shared.realm.objects(Gallery.self)
         
         //Custom size for collection items
         let itemSize = UIScreen.main.bounds.width/3-3
@@ -23,7 +24,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         collectionView.collectionViewLayout = layout
         
-        //Custom for backItem of this screen
+        //Custom backItem of this screen
         let backItem = UIBarButtonItem()
         backItem.title = "Gallery"
         backItem.tintColor = UIColor.white
@@ -31,32 +32,51 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         navigationItem.backBarButtonItem = backItem
         
         navigationController?.navigationBar.tintColor = UIColor.black
-         navigationItem.title = "Gallery"
-        
-        listImages=RealmService.shared.realm.objects(ImageSave.self)
+        navigationItem.title = "Gallery"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listImages.count
+        return listGalleries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryImageCell
         
-        cell.imageView.image = UIImage(data: listImages[indexPath.row].image)
+        if listGalleries[indexPath.row].thumbnailPath != nil{
+            cell.imageView.image = UIImage(contentsOfFile: listGalleries[indexPath.row].thumbnailPath!)
+            cell.imageStart.isHidden = false
+        } else{
+            cell.imageView.image = UIImage(contentsOfFile: listGalleries[indexPath.row].path)
+            cell.imageStart.isHidden = true
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentSelectedItem = indexPath.row
-        performSegue(withIdentifier: "showDetail", sender: self)
+        performSegue(withIdentifier: "showFile", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DetailGalleryViewController {
-            destination.imageName = listImages[currentSelectedItem].image
+        if let destination = segue.destination as? DetailGalleryViewController{
+            
+            if listGalleries[currentSelectedItem].thumbnailPath != nil{
+                destination.videoPath = listGalleries[currentSelectedItem].path
+                destination.imagePath = listGalleries[currentSelectedItem].thumbnailPath!
+            }
+            else{
+                destination.imagePath = listGalleries[currentSelectedItem].path
+            }
+            
+            destination.size = listGalleries[currentSelectedItem].size
+            destination.dimension = listGalleries[currentSelectedItem].dimension
+            destination.creationDate = listGalleries[currentSelectedItem].creationDate
         }
     }
     

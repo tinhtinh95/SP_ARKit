@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPm-Ka-xIb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPm-Ka-xIb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,14 +25,14 @@
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fz-JX-6ey" customClass="UIViewX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
                                 <rect key="frame" x="63" y="503.5" width="250" height="250"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spn-ay-tE3" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spn-ay-tE3" userLabel="Btn Sofa" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
                                         <rect key="frame" x="195" y="63" width="40" height="40"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="ILa-wQ-aQX"/>
                                             <constraint firstAttribute="height" constant="40" id="T55-94-RuR"/>
                                         </constraints>
-                                        <state key="normal" image="bed"/>
+                                        <state key="normal" image="sofa"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -59,21 +59,21 @@
                                             <action selector="buttonAction:" destination="hPm-Ka-xIb" eventType="touchUpInside" id="npN-EV-Uvd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1q-7s-MY0" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1q-7s-MY0" userLabel="Btn Bed" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
                                         <rect key="frame" x="205" y="105" width="40" height="40"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="dUa-Ik-TR7"/>
                                             <constraint firstAttribute="height" constant="40" id="oEm-DC-Q55"/>
                                         </constraints>
-                                        <state key="normal" image="sofa"/>
+                                        <state key="normal" image="bed"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonAction:" destination="hPm-Ka-xIb" eventType="touchUpInside" id="JQy-IP-YiM"/>
+                                            <action selector="buttonAction:" destination="hPm-Ka-xIb" eventType="touchUpInside" id="WUo-uG-gxY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4W-lC-e5b" customClass="UIButtonX" customModule="AR_Application_for_Room_Design_and_Decoration" customModuleProvider="target">
@@ -83,7 +83,7 @@
                                             <constraint firstAttribute="height" constant="40" id="SkW-7p-vjS"/>
                                             <constraint firstAttribute="width" constant="40" id="enT-cG-ooa"/>
                                         </constraints>
-                                        <state key="normal" image="shelf"/>
+                                        <state key="normal" image="picture"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -100,7 +100,7 @@
                                             <constraint firstAttribute="width" constant="40" id="mId-eP-IVt"/>
                                             <constraint firstAttribute="height" constant="40" id="xfl-18-OQh"/>
                                         </constraints>
-                                        <state key="normal" image="chair"/>
+                                        <state key="normal" image="table"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -117,7 +117,7 @@
                                             <constraint firstAttribute="height" constant="40" id="kcQ-dR-qXW"/>
                                             <constraint firstAttribute="width" constant="40" id="lPr-8H-QoV"/>
                                         </constraints>
-                                        <state key="normal" image="table"/>
+                                        <state key="normal" image="wardrobe"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -134,7 +134,7 @@
                                             <constraint firstAttribute="height" constant="40" id="8iU-4G-pyH"/>
                                             <constraint firstAttribute="width" constant="40" id="M7d-IK-n9v"/>
                                         </constraints>
-                                        <state key="normal" image="wardrobe"/>
+                                        <state key="normal" image="chair"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -151,7 +151,7 @@
                                             <constraint firstAttribute="height" constant="40" id="G7d-QF-2NH"/>
                                             <constraint firstAttribute="width" constant="40" id="bvW-ib-OMt"/>
                                         </constraints>
-                                        <state key="normal" image="desk"/>
+                                        <state key="normal" image="other"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="20"/>
@@ -159,7 +159,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonAction:" destination="hPm-Ka-xIb" eventType="touchUpInside" id="ku5-kA-cyL"/>
-                                            <action selector="chooseWithSender:" destination="hPm-Ka-xIb" eventType="touchUpInside" id="guS-id-ymt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -394,6 +393,12 @@
                                     <action selector="btnShareEvent" destination="hPm-Ka-xIb" eventType="touchUpInside" id="YjJ-XJ-yBC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching surfaces..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d9-8c-J4r">
+                                <rect key="frame" x="70" y="318.5" width="234" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -407,9 +412,11 @@
                             <constraint firstAttribute="trailing" secondItem="NrU-Cz-evX" secondAttribute="trailing" constant="4" id="KuW-db-zyH"/>
                             <constraint firstAttribute="trailing" secondItem="ORn-0x-PJ9" secondAttribute="trailing" constant="-125" id="LSy-oj-IKd"/>
                             <constraint firstAttribute="trailing" secondItem="pPc-yk-agX" secondAttribute="trailing" constant="4" id="NOe-HL-jMM"/>
+                            <constraint firstItem="8d9-8c-J4r" firstAttribute="centerX" secondItem="umc-Zp-RZd" secondAttribute="centerX" id="NgP-dL-EFy"/>
                             <constraint firstItem="CT4-Jf-CBb" firstAttribute="top" secondItem="OE0-Z7-97L" secondAttribute="top" constant="73" id="OHi-mb-wYT"/>
                             <constraint firstItem="pPc-yk-agX" firstAttribute="top" secondItem="OE0-Z7-97L" secondAttribute="top" constant="73" id="YgJ-a1-RrA"/>
                             <constraint firstItem="f4e-ax-yLq" firstAttribute="bottom" secondItem="gqx-1z-IXh" secondAttribute="bottom" constant="15" id="b8H-W9-1vq"/>
+                            <constraint firstItem="8d9-8c-J4r" firstAttribute="centerY" secondItem="umc-Zp-RZd" secondAttribute="centerY" id="dBE-Qf-gaF"/>
                             <constraint firstAttribute="bottom" secondItem="LCW-ss-RVQ" secondAttribute="bottom" constant="14" id="fgv-pJ-IfT"/>
                             <constraint firstItem="LCW-ss-RVQ" firstAttribute="leading" secondItem="f4e-ax-yLq" secondAttribute="leading" constant="5" id="hU1-oa-7gy"/>
                             <constraint firstAttribute="bottom" secondItem="1N9-0x-EbD" secondAttribute="bottom" constant="14" id="j4v-Uv-WE6"/>
@@ -432,24 +439,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="Design and Decoration" id="9qY-He-urv"/>
                     <connections>
-                        <outlet property="btnBed" destination="spn-ay-tE3" id="ml3-d9-1fh"/>
+                        <outlet property="btnBed" destination="E1q-7s-MY0" id="zfW-14-nnY"/>
                         <outlet property="btnCancel" destination="LCW-ss-RVQ" id="PQN-9V-bpH"/>
-                        <outlet property="btnChair" destination="xKv-y1-cgH" id="yM5-rl-Jhy"/>
+                        <outlet property="btnChair" destination="eRY-gn-gh6" id="7xF-Fn-upQ"/>
                         <outlet property="btnDelete" destination="Vpa-ml-2nQ" id="V9m-3u-sFI"/>
-                        <outlet property="btnDesk" destination="4wP-F9-6BA" id="LBU-yG-d1k"/>
-                        <outlet property="btnLamp" destination="hNz-z3-1Gu" id="6pI-Z0-7cw"/>
+                        <outlet property="btnLamp" destination="hNz-z3-1Gu" id="boc-Gl-OCr"/>
                         <outlet property="btnMenu" destination="gqx-1z-IXh" id="rjg-35-1Nl"/>
                         <outlet property="btnOption" destination="1N9-0x-EbD" id="dnC-jQ-HWT"/>
+                        <outlet property="btnOther" destination="4wP-F9-6BA" id="MYR-wB-kga"/>
+                        <outlet property="btnPicture" destination="k4W-lC-e5b" id="wfh-Vf-lIM"/>
                         <outlet property="btnReset" destination="tuh-P3-DBY" id="SD6-hr-SM5"/>
                         <outlet property="btnShare" destination="pPc-yk-agX" id="cOa-BV-zHh"/>
-                        <outlet property="btnShelf" destination="k4W-lC-e5b" id="31D-EX-cYw"/>
-                        <outlet property="btnSofa" destination="E1q-7s-MY0" id="jZy-xl-WGb"/>
-                        <outlet property="btnTable" destination="WqW-Db-ZoG" id="GPx-d8-5zc"/>
+                        <outlet property="btnSofa" destination="spn-ay-tE3" id="t0D-QJ-iZc"/>
+                        <outlet property="btnTable" destination="xKv-y1-cgH" id="mHB-H5-eII"/>
                         <outlet property="btnTakeScreen" destination="TWU-PR-7PF" id="E3U-EK-yjI"/>
-                        <outlet property="btnWardore" destination="eRY-gn-gh6" id="IKg-zR-6EO"/>
+                        <outlet property="btnWardrobe" destination="WqW-Db-ZoG" id="ZGd-ta-LOs"/>
                         <outlet property="imgView" destination="umc-Zp-RZd" id="LhC-nL-tYb"/>
                         <outlet property="isPlay" destination="CT4-Jf-CBb" id="lCw-v3-DA7"/>
                         <outlet property="isRecord" destination="NrU-Cz-evX" id="g6G-8m-PjI"/>
+                        <outlet property="lbSearchPlane" destination="8d9-8c-J4r" id="ynp-db-yyi"/>
                         <outlet property="menuView" destination="2fz-JX-6ey" id="H4q-ZT-MD2"/>
                         <outlet property="optionView" destination="ORn-0x-PJ9" id="iWb-gl-E9s"/>
                         <outlet property="sceneView" destination="8jK-GO-Fgr" id="aGy-1z-IAa"/>
@@ -585,13 +593,13 @@
         <image name="cancel" width="128" height="128"/>
         <image name="chair" width="21" height="21"/>
         <image name="del" width="50" height="50"/>
-        <image name="desk" width="21" height="21"/>
         <image name="lamp" width="21" height="21"/>
+        <image name="other" width="24" height="24"/>
+        <image name="picture" width="21" height="21"/>
         <image name="record" width="50" height="50"/>
         <image name="reset" width="25" height="25"/>
         <image name="setting" width="128" height="128"/>
         <image name="share" width="128" height="128"/>
-        <image name="shelf" width="21" height="21"/>
         <image name="sofa" width="21" height="21"/>
         <image name="start" width="128" height="128"/>
         <image name="stop" width="100" height="100"/>

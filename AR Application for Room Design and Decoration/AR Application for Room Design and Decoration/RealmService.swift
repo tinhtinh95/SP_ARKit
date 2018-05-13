@@ -6,7 +6,6 @@ class RealmService {
     static let shared = RealmService()
     var realm = try! Realm()
     
- 
     func create<T: Object>(_ object: T){
         do{
             try realm.write{
@@ -16,14 +15,6 @@ class RealmService {
             print("REALM Error occurs when create a new object: \(error.localizedDescription)")
         }
     }
-    
-    //    func update<T: Object>(_ object: T, with dictionary: [String: Any?]){
-    //        try! realm.write{
-    //            for (key, value) in dictionary{
-    //                object.setValue(value, forKey: key)
-    //            }
-    //        }
-    //    }
     
     func update<T: Object>(_ object: T){
         do{
@@ -36,10 +27,15 @@ class RealmService {
     }
     
     func delete<T: Object>(_ object: T){
-        try! realm.write{
-            realm.delete(object)
+        do{
+            try realm.write{
+                realm.delete(object)
+            }
+        }catch{
+            print("REALM Error occurs when delete a object: \(error.localizedDescription)")
         }
     }
+    
     
     func post(_ err: Error){
         NotificationCenter.default.post(name: NSNotification.Name("RealmErr"), object: err)

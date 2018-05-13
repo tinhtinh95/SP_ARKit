@@ -7,7 +7,7 @@ extension DesignAndDecorationViewController{
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-//         If light estimation is enabled, update the intensity of the model's lights and the environment map
+        // If light estimation is enabled, update the intensity of the model's lights and the environment map
         let baseIntensity: CGFloat = 40
         let lightingEnvironment = sceneView.scene.lightingEnvironment
         if let lightEstimate = session.currentFrame?.lightEstimate {
@@ -19,13 +19,17 @@ extension DesignAndDecorationViewController{
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         sceneView.debugOptions = []
-        // Make sure you're on the main thread here
         DispatchQueue.main.async {
             if let planeAnchor = anchor as? ARPlaneAnchor {
                 // create plane with the "PlaneAnchor"
                 let plane = Plane(anchor: planeAnchor)
                 // add to the detected
                 node.addChildNode(plane)
+                self.lbSearchPlane.text = "Plane is detected"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    self.lbSearchPlane.isHidden = true
+                })
+                self.lbSearchPlane.textColor = UIColor.orange
                 // add to dictionary
                 self.dictPlanes[planeAnchor] = plane
             }

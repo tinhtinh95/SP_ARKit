@@ -2,56 +2,13 @@ import UIKit
 import SceneKit
 import ARKit
 import SceneKitVideoRecorder
+import RealmSwift
 
- var ID:Int = 0
+var ID:Int = 0
 
 class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, DesignAndDecorationDelegate, UIGestureRecognizerDelegate{
     
-    func putItem(itemPath: String, id: Int) {
-        print("Value recieved from ItemViewController: " + itemPath)
-        print(id)
-        self.sceneView.scene.rootNode.enumerateChildNodes{(node, _) in
-            if node.name == "planeNode"{
-                node.removeFromParentNode()
-            }
-        }
-        let hit = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
-        if hit.isEmpty{
-            return
-        }
-        let node = SCNNode()
-        let wrappNode=SCNNode()
-//        var checkID: Int=TableFurnitureViewController.arrListItem[id]
-        
-        var scene=SCNScene(named: "art.scnassets/vase/vase.scn")
-        if id==0{
-            scene = SCNScene(named: "art.scnassets/TableLamp/TableLamp.scn")
-        }else if id==1{
-            scene = SCNScene(named: "art.scnassets/DesignSofa/3Dmodels/DesignSofa1.scn")
-        }else if id==4{
-            scene = SCNScene(named: "art.scnassets/chair/chair.scn")
-        }
-        
-        
-        let nodeArray = scene?.rootNode.childNodes
-        for childNode in nodeArray! {
-            wrappNode.addChildNode(childNode)
-        }
-        node.addChildNode(wrappNode)
-        //        node.scale=SCNVector3(0.05,0.05,0.05)
-        let results=hit.first?.worldTransform
-        node.position=SCNVector3((results?.columns.3.x)!, (results?.columns.3.y)!, (results?.columns.3.z)!)
-        DispatchQueue.main.async {
-            self.sceneView.scene.rootNode.addChildNode(node)
-            if self.swtAudio.isOn{
-                self.audioConfigure(action: "add")
-            }
-        }
-
-        closeMenu()
-        btnMenu.transform = .identity
-    }
-    
+    var fileManager = FileManager.default
     @IBOutlet weak var menuView: UIViewX!
     
     @IBOutlet weak var imgView: UIImageView!
@@ -62,17 +19,18 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var btnMenu: UIButton!
     @IBOutlet weak var btnOption: UIButton!
-
+    
     @IBOutlet weak var optionView: UIView!
     
+    @IBOutlet weak var btnWardrobe: UIButtonX!
     @IBOutlet weak var btnTable: UIButtonX!
-    @IBOutlet weak var btnChair: UIButtonX!
-    @IBOutlet weak var btnShelf: UIButtonX!
+    @IBOutlet weak var btnPicture: UIButtonX!
     @IBOutlet weak var btnLamp: UIButtonX!
-    @IBOutlet weak var btnDesk: UIButtonX!
-    @IBOutlet weak var btnWardore: UIButtonX!
-    @IBOutlet weak var btnBed: UIButtonX!
+    @IBOutlet weak var btnOther: UIButtonX!
+    @IBOutlet weak var btnChair: UIButtonX!
     @IBOutlet weak var btnSofa: UIButtonX!
+    @IBOutlet weak var btnBed: UIButtonX!
+    
     @IBOutlet weak var sceneView: ARSCNView!
     
     @IBOutlet weak var swtAudio: UISwitch!
@@ -80,6 +38,7 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
     @IBOutlet weak var isRecord: UIButton!
     @IBOutlet weak var isPlay: UIButton!
     
+    @IBOutlet weak var lbSearchPlane: UILabel!
     // planes
     var dictPlanes = [ARPlaneAnchor: Plane]()
     //    var sceneLight:SCNLight!
@@ -92,21 +51,9 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
     var isVideo: Bool!
     var pathVideo: URL!
     var originalScale:SCNVector3?
-   
     
-    var selectedObject: SCNNode?
-    
-    /// The object that is tracked for use by the pan and rotation gestures.
-    var trackedObject: SCNNode? {
-        didSet {
-            guard trackedObject != nil else { return }
-            selectedObject = trackedObject
-        }
-    }
     var x: Float!
     var z: Float!
-    
-    var currentTrackingPosition: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,29 +67,44 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
         closeMenu()
         closeOption()
         
-        btnSofa.tag = 0
-        btnBed.tag = 1
-        btnWardore.tag = 2
-        btnDesk.tag = 3
-        btnLamp.tag = 4
-        btnShelf.tag = 5
-        btnChair.tag = 6
-        btnTable.tag = 7
+        btnWardrobe.tag=0
+        btnTable.tag=1
+        btnPicture.tag=2
+        btnLamp.tag=3
+        btnOther.tag=4
+        btnChair.tag=5
+        btnSofa.tag=6
+        btnBed.tag=7
         
         recorder = try! SceneKitVideoRecorder(withARSCNView: sceneView)
         navigationItem.title = ""
+        var listCat : Array<Category> = Array()
+        
+        listCat.append(Category(id: 0, name: "wardrobe"))
+        listCat.append(Category(id: 1, name: "table"))
+        listCat.append(Category(id: 2, name: "picture"))
+        listCat.append(Category(id: 3, name: "lamp"))
+        listCat.append(Category(id: 4, name: "others"))
+        listCat.append(Category(id: 5, name: "chair"))
+        listCat.append(Category(id: 6, name: "sofa"))
+        listCat.append(Category(id: 7, name: "bed"))
+        
+        for objCat in listCat{
+            RealmService.shared.update(objCat)
+        }
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection=[.horizontal,.vertical]
+
         // Run the view's session
         sceneView.session.run(configuration)
         configuration.isLightEstimationEnabled = true
-        configuration.worldAlignment = .gravityAndHeading
-      sceneView.debugOptions=[ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions=[ARSCNDebugOptions.showFeaturePoints]
+        
+        self.lbSearchPlane.text = "Searching plane... "
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -155,7 +117,7 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+    
     // When tap background -> close all
     @IBAction func tapBackground(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
@@ -168,29 +130,28 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
     
     // Action for menu -> rotation menu button and show menu view
     @IBAction func menuTapper(_ sender: FloatingActionButton) {
-            UIView.animate(withDuration: 0.3, animations: {
-                if self.menuView.transform == .identity{
-                    self.closeMenu()
-                } else {
-                    self.closeOption()
-                    self.menuView.transform = .identity
-                }
-            })
+        UIView.animate(withDuration: 0.3, animations: {
+            if self.menuView.transform == .identity{
+                self.closeMenu()
+            } else {
+                self.closeOption()
+                self.menuView.transform = .identity
+            }
+        })
         
         UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
             if self.menuView.transform == .identity {
                 self.btnTable.transform = .identity
                 self.btnChair.transform = .identity
-                self.btnShelf.transform = .identity
+                self.btnOther.transform = .identity
                 self.btnLamp.transform = .identity
-                self.btnDesk.transform = .identity
-                self.btnWardore.transform = .identity
+                self.btnPicture.transform = .identity
+                self.btnWardrobe.transform = .identity
                 self.btnBed.transform = .identity
                 self.btnSofa.transform = .identity
             }
         })
     }
-    
     
     @IBAction func buttonAction(_ sender: Any) {
         
@@ -199,8 +160,6 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
         
         destination.delegate = self
         present(destination, animated: true, completion: nil)
-//        self.navigationController?.present(destination, animated: true, completion: nil)
-        
         ID = button.tag
     }
     
@@ -220,19 +179,17 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
         })
     }
     
-    
     //Animation buttons in menu view
     func closeMenu(){
         self.menuView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         btnTable.transform = CGAffineTransform(translationX: -6, y: 0)
         btnChair.transform = CGAffineTransform(translationX: -6, y: -2)
-        btnShelf.transform = CGAffineTransform(translationX: -6, y: -5)
+        btnOther.transform = CGAffineTransform(translationX: -6, y: -5)
         btnLamp.transform = CGAffineTransform(translationX: 0, y: -6)
-        btnDesk.transform = CGAffineTransform(translationX: 0, y: -6)
-        btnWardore.transform = CGAffineTransform(translationX: 6, y: -5)
+        btnPicture.transform = CGAffineTransform(translationX: 0, y: -6)
+        btnWardrobe.transform = CGAffineTransform(translationX: 6, y: -5)
         btnBed.transform = CGAffineTransform(translationX: 6, y: -2)
         btnSofa.transform = CGAffineTransform(translationX: 6, y: 0)
-        
     }
     
     // Close option
@@ -240,12 +197,87 @@ class DesignAndDecorationViewController: UIViewController, ARSCNViewDelegate, AR
         self.optionView.transform = CGAffineTransform(translationX: 0 , y: 400)
     }
     
-    // 
     @IBAction func returned(segue: UIStoryboardSegue) {
         closeMenu()
         btnMenu.transform = .identity
     }
+    
+    //TODO: fix this code
+    func putItem(itemPath: String, id: Int) {
+        print("itemPath \(itemPath)")
+        var hitTestOptions = [SCNHitTestOption: Any]()
+        hitTestOptions[SCNHitTestOption.boundingBoxOnly] = true
+        
+        var firstNodeHitTest = sceneView.hitTest(view.center, options: hitTestOptions).first?.node
+        
+        let hit = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
+        
+        if hit.isEmpty || firstNodeHitTest == nil{
+            return
+        }
+        
+        while true {
+            if firstNodeHitTest?.parent == sceneView.scene.rootNode {
+                break
+            }
+            firstNodeHitTest = firstNodeHitTest?.parent!
+        }
+        
+        let material = SCNMaterial()
+        let image = UIImage(named: "transparent")
+        material.diffuse.contents = image
+        firstNodeHitTest?.childNode(withName: "planeNode", recursively: true)?.geometry?.materials = [material]
+        
+        let node = SCNNode()
+        let realm = try! Realm()
+        let name = realm.objects(Category.self).filter("id=\(id)").first?.name
+        let assetsPath = "art.scnassets/\(name!)"
+        
+        if let planeAnchor = hit.first?.anchor as? ARPlaneAnchor{
+            if planeAnchor.alignment == .vertical{
 
+                if (name == "picture" || itemPath == "stickynote" || itemPath == "WallClock") {
+                    node.eulerAngles = (firstNodeHitTest?.eulerAngles)!
+                }else{
+                    closeAllAnimation()
+
+                    let alert = UIAlertController(title: "Warning", message: "Can not put this item on the vertical plane", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+
+                    self.present(alert, animated: true)
+                    return
+                }
+            }
+            let worldTransform = hit.first?.worldTransform
+            let scenePath = "\(assetsPath)/\(itemPath)/\(itemPath).scn"
+            chooseItem(path: scenePath,worldTransform: worldTransform!, node)
+        }
+    }
+    
+    func chooseItem( path: String,  worldTransform: matrix_float4x4,_ node: SCNNode){
+        
+        let scene=SCNScene(named: path)
+        let nodeArray = scene?.rootNode.childNodes
+        for childNode in nodeArray! {
+            node.addChildNode(childNode)
+        }
+        
+        node.position = SCNVector3((worldTransform.columns.3.x), worldTransform.columns.3.y, (worldTransform.columns.3.z))
+
+//        node.geometry = SCNBox(width: CGFloat(node.scale.z), height: CGFloat(node.scale.y), length: CGFloat(node.scale.z), chamferRadius: 0)
+
+        node.physicsBody?.categoryBitMask = 2
+        node.physicsBody?.collisionBitMask = 1
+        node.physicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(node: node, options: nil))
+        
+        
+        DispatchQueue.main.async {
+            self.sceneView.scene.rootNode.addChildNode(node)
+            if self.swtAudio.isOn{
+                self.audioConfigure(action: "add")
+            }
+        }
+        closeMenu()
+        btnMenu.transform = .identity
+    }
 }
-
-
